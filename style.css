@@ -1,0 +1,108 @@
+body {
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+#chessboard {
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10, 50px);
+    width: 500px;
+    height: 500px;
+    border: 5px solid #555;
+}
+
+.square {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    box-sizing: border-box;
+    position: relative; 
+}
+
+.light {
+    background-color: #f0d9b5;
+}
+
+.dark {
+    background-color: #b58863;
+}
+
+h1 {
+    color: #f0d9b5;
+    text-align: center;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px #00000080;
+}
+
+.piece {
+    cursor: pointer;
+    pointer-events: none; 
+}
+
+.square.selected {
+    background-color: #f7d269 !important;
+}
+
+/* Base style for all move indicators */
+.hint {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; 
+}
+
+/* Green dot for moves to empty squares */
+.legal-move-hint::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: rgba(46, 125, 50, 0.7);
+    border-radius: 50%;
+}
+
+/* Red 'X' for capture moves */
+.capture-hint::before {
+    content: '✕';
+    color: rgba(211, 47, 47, 0.8);
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 1;
+}
+
+#status-display {
+    color: #f0d9b5;
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    height: 30px;
+    font-weight: bold;
+}
+
+.square.in-check {
+    background: radial-gradient(circle, rgba(211, 47, 47, 0.7) 30%, transparent 70%);
+}
+
+#new-game-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #f0d9b5;
+    color: #333;
+    font-weight: bold;
+}
